@@ -24,9 +24,9 @@
               <li
                 :key="index"
                 v-for="(item, index) in cart"
-              >{{item.title}} x {{item.quantity}} - {{item.price}}</li>
+              >{{ item.title }} x {{ item.quantity }} - {{ item.price }}</li>
             </ul>
-            ทั้งหมด {{cartTotal}}
+            ทั้งหมด {{ cartTotal }}
           </div>
         </div>
       </div>
