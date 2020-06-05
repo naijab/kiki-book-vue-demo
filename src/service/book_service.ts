@@ -47,6 +47,43 @@ export default class BookService {
       author: 'James Dashner',
       price: 100,
     },
+    {
+      id: 6,
+      title: 'Divergent',
+      detail: 'Divergent',
+      cover:
+        ' https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9780/0620/9780062024022.jpg',
+      author: 'Veronica Roth',
+      price: 100,
+    },
+    {
+      id: 7,
+      title: 'Allegiant',
+      detail: 'Allegiant',
+      cover:
+        'https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9780/0620/9780062024060.jpg',
+      author: 'Veronica Roth',
+      price: 100,
+    },
+
+    {
+      id: 8,
+      title: ' Fantastic Beasts and Where to Find Them',
+      detail: ' Fantastic Beasts and Where to Find Them',
+      cover:
+        'https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/4087/9781408708989.jpg',
+      author: 'J. K. Rowling',
+      price: 100,
+    },
+    {
+      id: 9,
+      title: 'Harry Potter and the Cursed Child ',
+      detail: 'Harry Potter and the Cursed Child ',
+      cover:
+        'https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9780/7515/9780751565362.jpg',
+      author: 'J. K. Rowling',
+      price: 100,
+    },
   ]
 
   public static getAll(): Promise<Array<Book>> {
