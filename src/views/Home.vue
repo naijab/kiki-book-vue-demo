@@ -49,7 +49,7 @@
           </header>
 
           <footer class="flex items-center justify-between leading-none p-2 md:p-4">
-            {{ book.price }} THB
+            <span class="text-red-500">{{ book.price }} THB</span>
             <button
               class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
               @click="addToCart(book)"
