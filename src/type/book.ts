@@ -5,4 +5,5 @@ export interface Book {
   cover: string
   author: string
   price: number
+  quantity: number
 }

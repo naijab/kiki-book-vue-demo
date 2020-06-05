@@ -21,10 +21,9 @@
           <div class="px-6 py-4">
             <div class="font-bold text-xl mb-2">ตระกร้าสินค้า</div>
             <ul>
-              <li
-                :key="index"
-                v-for="(item, index) in cart"
-              >{{ item.title }} x {{ item.quantity }} - {{ item.price }}</li>
+              <li :key="index" v-for="(item, index) in cart">
+                {{ item.title }} x {{ item.quantity }} - {{ item.price }}
+              </li>
             </ul>
             ทั้งหมด {{ cartTotal }}
           </div>
@@ -39,21 +38,33 @@
         v-for="(book, index) in bookList"
       >
         <article class="overflow-hidden rounded-lg shadow-lg">
-          <img class="block h-auto w-full" :src="book.cover" :alt="book.title" />
+          <img
+            class="block h-auto w-full"
+            :src="book.cover"
+            :alt="book.title"
+          />
 
-          <header class="flex items-center justify-between leading-tight p-2 md:p-4">
+          <header
+            class="flex items-center justify-between leading-tight p-2 md:p-4"
+          >
             <h1 class="text-lg">{{ book.title }}</h1>
             <p
               class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
-            >{{ book.author }}</p>
+            >
+              {{ book.author }}
+            </p>
           </header>
 
-          <footer class="flex items-center justify-between leading-none p-2 md:p-4">
+          <footer
+            class="flex items-center justify-between leading-none p-2 md:p-4"
+          >
             <span class="text-red-500">{{ book.price }} THB</span>
             <button
               class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
               @click="addToCart(book)"
-            >Add to Cart</button>
+            >
+              Add to Cart
+            </button>
           </footer>
         </article>
       </div>
@@ -63,13 +74,13 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { mapActions, mapGetters } from 'vuex'
 import BookService from '../service/book_service'
 import { Book } from '../type/book'
-@Component({
-  computed: mapGetters(['cart', 'cartTotal']),
-  methods: { ...mapActions(['addBookToCart']) }
-})
+import { getModule } from 'vuex-module-decorators'
+import CartModule from '../store/modules/cart'
+
+const cartModule = getModule(CartModule)
+@Component({})
 export default class Home extends Vue {
   private bookList: Array<Book> = []
 
@@ -78,7 +89,15 @@ export default class Home extends Vue {
   }
 
   addToCart(book: Book) {
-    this.addBookToCart(book)
+    cartModule.addBookToCart(book)
+  }
+
+  get cart() {
+    return cartModule.shoppingCart
+  }
+
+  get cartTotal() {
+    return cartModule.totalShoppingCart
   }
 }
 </script>
