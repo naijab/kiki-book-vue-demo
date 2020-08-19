@@ -1,4 +1,4 @@
-# booking-store
+# kiki book store
 
 > Demo Site: [kiki-book.netlify.app](https://kiki-book.netlify.app)
 
